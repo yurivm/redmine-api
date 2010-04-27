@@ -1,0 +1,2 @@
+module ApiActivitiesHelper
+end

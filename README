@@ -1,0 +1,52 @@
+(yet another of so many) Redmine API plugins
+-------------------------------------------------------
+I needed a quick way to access some of the Redmine's entities,
+such as projects, tasks, versions, activities. I also needed the
+ability to log working time.
+This plugin exposes a REST-style API do perform these tasks.
+
+PREREQUISITES
+-------------------------------------------------------
+- install the current Redmine,version 0.9.3 (2010-02-28). 
+get it : http://rubyforge.org/frs/?group_id=1850 
+
+INSTALLATION
+-------------------------------------------------------
+- cd YOUR_REDMINE_FOLDER/vendor/plugins
+- mkdir redmine_api
+- git clone 
+- you're done
+
+GETTING READY TO USE THE API
+-------------------------------------------------------
+- to use the API, you'll need your API key. 
+  -- go to My Account in Redmine, click "Show" under API Key.
+- provide the key value as a GET parameter, ?key=MYKEY. See examples below.
+
+USING THE API (at last)
+------------------------------------------------------
+- Get my projects	 
+GET http://localhost:4000/api/projects?&key=MYKEY
+
+- Get issues of the project MYPROJECT 
+GET http://localhost:4000/api/issues/?project_id=MYPROJECT&key=MYKEY
+GET http://localhost:4000/api/issues/project_id?MYPROJECT&key=MYKEY
+
+- Log time for Issue #1234
+POST http://localhost:4000/api/timelog/?issue_id=1234&key=MYKEY
+POST http://localhost:4000/api/timelog/1234?key=MYKEY
+
+- Get activities for the project MYPROJECT
+GET http://localhost:4000/api/activities/MYPROJECT?key=MYKEY
+
+-Get versions for the project MYPROJECT
+GET http://localhost:4000/api/versions/MYPROJECT?key=MYKEY
+
+NOTES
+-------------------------------------------------------
+- I'm pretty aware of Redmine's own API and Rails REST support
+- This plugin follows the "commando" pattern:
+  -- get inside
+  -- get the work done
+  -- take no prisoners
+
