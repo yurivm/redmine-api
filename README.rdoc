@@ -20,14 +20,18 @@ Using this API, you can:
 - git clone http://github.com/yurivm/redmine-api.git 
 - you're done
 
-GETTING READY TO USE THE API
--------------------------------------------------------
+= Using the API
+
+Every call you make must supply the API key, as Redmine requires itself.
+
+== Get your API key
+
 - to use the API, you'll need your API key. 
   - go to My Account in Redmine, click "Show" under API Key.
 - provide the key value as a GET parameter, ?key=MYKEY. See examples below.
 
-USING THE API (at last)
-------------------------------------------------------
+== Querying the API (at last)
+
 - Get my projects	 
 GET http://localhost:4000/api/projects?&key=MYKEY
 
@@ -45,8 +49,8 @@ GET http://localhost:4000/api/activities/MYPROJECT?key=MYKEY
 -Get versions for the project MYPROJECT
 GET http://localhost:4000/api/versions/MYPROJECT?key=MYKEY
 
-NOTES
--------------------------------------------------------
+= Notes
+
 - I'm pretty aware of Redmine's own API and Rails REST support
 - This plugin follows the "commando" pattern:
   - get inside
